@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body style="font-family: Arial, sans-serif; background-color:#f4f6f8; padding: 20px;">
+    <h1>Vapi Audit: Top 5 Reports</h1>
+    <hr/>
+    <div style="background-color:#ffffff; border-radius:8px; border:1px solid #e5e7eb; padding: 20px; max-width: 800px; margin: auto;">
+        <h2 style="color:#dc2626;">Call ID: 019c3100-bfe2-7ee1-b030-8a2574526080</h2>
+        <p><strong>Agent:</strong> Sarah (Caudle Village)</p>
+        <p><strong>Score:</strong> 62/100 (Major Issue)</p>
+        <div style="background:#fee2e2; border-left:4px solid #dc2626; padding:15px;">
+            <h3>What Happened</h3>
+            <p>The agent successfully collected and validated the dining reservation (3 people, Friday at 5 PM). However, after saying "Let me connect you," the agent failed to trigger the transfer tool, leaving the customer in silence and eventually ending the call as a failure.</p>
+        </div>
+        <h3>Technical Fix</h3>
+        <pre style="background:#111827; color:#10b981; padding:10px; border-radius:4px;">
+TRANSFER RULE (STRICT): You MUST trigger the transferCall function 
+IMMEDIATELY after the verbal cue "Let me connect you." 
+Do not wait for further user input.
+        </pre>
+    </div>
+    <br/>
+    <div style="background-color:#ffffff; border-radius:8px; border:1px solid #e5e7eb; padding: 20px; max-width: 800px; margin: auto;">
+        <h2 style="color:#22c55e;">Call ID: 019c2fb9-4d49-7334-aa09-35d6fbf12ab4</h2>
+        <p><strong>Agent:</strong> Sammy (Complete Realty)</p>
+        <p><strong>Score:</strong> 95/100 (Clean)</p>
+        <p><strong>Verdict:</strong> Handled voicemail perfectly according to scheduling protocol.</p>
+    </div>
+</body>
+</html>

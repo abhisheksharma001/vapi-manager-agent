@@ -1,0 +1,22 @@
+# PHASE 1: ANALYZER (Intent Extraction)
+The system prompt defines a strict emergency dispatcher protocol. 
+Must collect: Verbal confirmation for taking the emergency call.
+Must provide: Tenant info (Chris Putzler) and callback number (+16366969989).
+Forbidden: Small talk, apologies, farewells.
+Success: Obtaining confirmation and saying "Perfect. Full details are hitting your phone now..."
+
+# PHASE 2: SCORER (Forensic Audit)
+Call ID: 019c5293-9990-7ee0-a638-9f11d6aac18b
+Score: 7/10
+Violations:
+1. Behavioral: User first accepted ("Yes. I will take it."), then said "No. Thank you. Bye." then "No. I will take it." The AI correctly navigated this confusion by asking "Are you available for this emergency?" but repeated the "Perfect..." block twice due to user flip-flopping.
+2. Protocol: The AI provided the "urgent after hours maintenance" intro but missed the specific tenant name/number in the initial greeting as mandated by the system prompt ("Tenant's name is Chris Putzler...").
+3. Outcome: Eventually secured confirmation and delivered the "hitting your phone now" message.
+
+# PHASE 3: OPTIMIZER (Action Plan)
+Management: Call was successful but redundant due to technician confusion. AI successfully re-verified availability after a contradiction.
+Developer: 
+Issue -> Missing specific tenant data in greeting.
+Fix -> Hardcode or prioritize variable injection for [Task & Goals] step 1 to ensure immediate context delivery.
+Issue -> Redundant confirmation blocks.
+Fix -> Implement a 'state-aware' flag to skip the "Full details hitting your phone" script if already delivered once in the same session.

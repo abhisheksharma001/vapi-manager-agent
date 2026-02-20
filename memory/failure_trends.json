@@ -1,0 +1,16 @@
+{
+  "assistants": {
+    "0f11ec0b-8ddf-41d3-a4f9-ef8ff12d96e2": {
+      "name": "warm transfer testin Abh",
+      "failures": {
+        "premature_transfer": 1,
+        "general_performance": 1
+      }
+    },
+    "229e7f95-198a-47db-ad92-467889f6874d": {
+      "failures": {
+        "general_performance": 10
+      }
+    }
+  }
+}

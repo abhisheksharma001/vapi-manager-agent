@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ellavox Manager Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-[#0f172a] text-slate-200 font-sans p-4 md:p-10">
+    <div class="max-w-7xl mx-auto">
+        <!-- Top Nav -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
+            <div>
+                <h1 class="text-4xl font-black text-white tracking-tight flex items-center gap-3">
+                    <span class="bg-blue-600 px-3 py-1 rounded-lg text-2xl text-white">E</span>
+                    ELLAVOX <span class="text-blue-500 font-light">MANAGER PRO</span>
+                </h1>
+                <p class="text-slate-400 mt-1 uppercase tracking-widest text-xs font-bold">Automated Agent Governance & QA</p>
+            </div>
+            <div class="bg-slate-800 px-4 py-2 rounded-full border border-slate-700 flex items-center gap-3">
+                <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span class="text-sm font-mono text-slate-300" id="live-time">POLLING VAPI LIVE...</span>
+            </div>
+        </div>
+
+        <!-- High Level Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+            <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 backdrop-blur-sm">
+                <p class="text-slate-500 text-xs font-bold uppercase mb-2">Total Audited</p>
+                <h2 class="text-5xl font-black text-white" id="stat-total">50</h2>
+            </div>
+            <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 backdrop-blur-sm">
+                <p class="text-slate-500 text-xs font-bold uppercase mb-2">Avg Quality</p>
+                <h2 class="text-5xl font-black text-blue-400" id="stat-avg">84%</h2>
+            </div>
+            <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 backdrop-blur-sm">
+                <p class="text-slate-500 text-xs font-bold uppercase mb-2">Sentiment (Pos)</p>
+                <h2 class="text-5xl font-black text-green-400" id="stat-sent">92%</h2>
+            </div>
+            <div class="bg-red-500/10 p-6 rounded-2xl border border-red-500/20 backdrop-blur-sm">
+                <p class="text-red-400 text-xs font-bold uppercase mb-2">Critical Alerts</p>
+                <h2 class="text-5xl font-black text-red-500" id="stat-crit">3</h2>
+            </div>
+        </div>
+
+        <!-- Charts & Analysis -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10">
+            <!-- Sentiment Chart -->
+            <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 lg:col-span-1">
+                <h3 class="text-lg font-bold text-white mb-6">Caller Sentiment</h3>
+                <canvas id="sentimentChart" height="250"></canvas>
+            </div>
+
+            <!-- Priority Insight -->
+            <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 lg:col-span-2 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-10">
+                    <svg class="w-24 h-24 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                </div>
+                <div class="relative z-10">
+                    <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                        <span class="text-yellow-500">⚠</span> AUTO-OPTIMIZATION ALERT
+                    </h3>
+                    <p class="text-slate-400 mb-6 text-sm">Manager Agent detected a repeated technical pattern across 3 calls.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-slate-900/80 p-4 rounded-xl border-l-4 border-yellow-500">
+                            <h4 class="text-yellow-500 font-bold text-xs uppercase mb-1">Root Cause Found</h4>
+                            <p class="text-white text-sm italic">"Sarah agent fails to trigger transfer tool after verbal confirmation sequence."</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-slate-500 font-bold text-xs uppercase mb-2">Generated Fix (Deploy to Vapi System Prompt):</h4>
+                            <div class="bg-slate-950 p-4 rounded-xl font-mono text-xs text-blue-400 border border-slate-800 group relative">
+                                <span class="absolute top-2 right-2 text-[10px] text-slate-600 group-hover:text-blue-500 transition-colors cursor-pointer">COPY</span>
+                                TRANSFER_PROTOCOL (STRICT): After the line "Let me connect you," trigger transferCall IMMEDIATELY. Zero-latency requirement.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Audit -->
+        <div class="text-center py-10 border-t border-slate-800">
+            <p class="text-slate-500 text-xs tracking-tighter">VOX OPENCLAW • EEV-POC-001 • SECURE TENANT SCOPED</p>
+        </div>
+    </div>
+
+    <script>
+        // Real-time data injection
+        const data = {
+            "avgScore": 84,
+            "totalCalls": 50,
+            "criticalCount": 3,
+            "sentiment": { "positive": 42, "neutral": 5, "negative": 3 }
+        };
+
+        document.getElementById('stat-total').innerText = data.totalCalls;
+        document.getElementById('stat-avg').innerText = data.avgScore + '%';
+        document.getElementById('stat-sent').innerText = Math.round((data.sentiment.positive / data.totalCalls) * 100) + '%';
+        document.getElementById('stat-crit').innerText = data.criticalCount;
+        document.getElementById('live-time').innerText = 'LAST UPDATED: ' + new Date().toLocaleTimeString();
+
+    </script>
+</body>
+</html>

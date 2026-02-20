@@ -1,0 +1,43 @@
+{
+  "avgScore": 91,
+  "totalCalls": 50,
+  "criticalCount": 3,
+  "sentiment": {
+    "positive": 42,
+    "neutral": 5,
+    "negative": 3
+  },
+  "assistantBreakdown": {
+    "18fd0846-8671-47cf-8445-188115d20379": {
+      "calls": 3,
+      "avg": 92,
+      "total": 277
+    },
+    "0bbece1d-a3b5-42aa-8b8b-c151536a17f5": {
+      "calls": 13,
+      "avg": 86,
+      "total": 1114
+    },
+    "b9ee9c05-864d-4e62-b907-92e5b00dd422": {
+      "calls": 4,
+      "avg": 89,
+      "total": 355
+    },
+    "229e7f95-198a-47db-ad92-467889f6874d": {
+      "calls": 18,
+      "avg": 92,
+      "total": 1652
+    },
+    "35bde884-caa5-4dbc-9f62-3650e3d804db": {
+      "calls": 8,
+      "avg": 93,
+      "total": 746
+    },
+    "518b0645-f5c9-49b1-bbf7-387eb7363e98": {
+      "calls": 4,
+      "avg": 97,
+      "total": 387
+    }
+  },
+  "lastUpdate": "2026-02-17T01:09:37.391Z"
+}

@@ -1,0 +1,4 @@
+vapi_calls/
+vapi_qa/
+.env
+.openclaw/

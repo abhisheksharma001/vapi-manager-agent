@@ -1,0 +1,27 @@
+{
+  "windowMinutes": 1440,
+  "since": "2026-02-19T13:22:40.513Z",
+  "count": 2,
+  "calls": [
+    {
+      "id": "019c7780-1284-7334-8eca-75c953d1631d",
+      "assistantId": "0f11ec0b-8ddf-41d3-a4f9-ef8ff12d96e2",
+      "type": "inboundPhoneCall",
+      "status": "ended",
+      "endedReason": "assistant-forwarded-call",
+      "endedAt": "2026-02-19T20:04:12.253Z",
+      "summary": "",
+      "recordingUrl": "https://storage.vapi.ai/019c7780-1284-7334-8eca-75c953d1631d-1771531454904-564d643f-1e24-46fd-b76c-76a1bed5b9d3-mono.wav"
+    },
+    {
+      "id": "019c7764-531d-766a-b08b-17bf01481a2c",
+      "assistantId": "0bbece1d-a3b5-42aa-8b8b-c151536a17f5",
+      "type": "inboundPhoneCall",
+      "status": "ended",
+      "endedReason": "customer-ended-call",
+      "endedAt": "2026-02-19T19:33:22.348Z",
+      "summary": "The call began with an AI greeting from Poddle Village. However, the customer ended the call immediately without any further interaction or…",
+      "recordingUrl": "https://storage.vapi.ai/019c7764-531d-766a-b08b-17bf01481a2c-1771529605002-ee7bd739-358b-4be3-a13f-a5f592a102ff-mono.wav"
+    }
+  ]
+}
